@@ -1,13 +1,17 @@
-
 public class Main {
-    public static void main(String[] args) {
 
+    public static void helloWorld() {
         System.out.println("Hello World!");
+    }
 
-        for (int i = 1; i <= 2; i++) {
-
-
+    public static void printEvenNumbers(int endRange) {
+        for (int i = 2; i <= endRange; i += 2) {
             System.out.println("i = " + i);
         }
+    }
+
+    public static void main(String[] args) {
+        helloWorld();
+        printEvenNumbers(12);
     }
 }
