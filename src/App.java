@@ -6,6 +6,7 @@ public class App {
         var newKing = 6;
         var newLockRoom = 17;
         System.out.println(king + " has " + (newKing * newLockRoom) + " rooms.");
+
         // END
     }
 }
