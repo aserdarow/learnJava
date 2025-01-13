@@ -14,6 +14,7 @@ public class VariantA {
         scan.close();
 
 
+
     }
 
     // TODO: 2
