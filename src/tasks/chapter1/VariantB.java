@@ -35,17 +35,38 @@ public class VariantB {
         }
     }
 
-    public static void task2(int nums) {
-        // TODO: Алгоритм для максимального числа
-        // {-5, -20, -40, 1}
+//    public static void task2(long[] nums) {
+//        Scanner scan = new Scanner(System.in);
+//
+//        long max = Integer.MAX_VALUE;
+//        long min = Integer.MIN_VALUE;
+//
+//        for (long num : nums) {
+//            long numbers = scan.nextLong();
+//            if (numbers < min) {
+//                min = numbers;
+//            }
+//            if (numbers > max) {
+//                max = numbers;
+//            }
+//
+//        }
+//
+//        System.out.println("Наименьшее число: " + min);
+//        System.out.println("Наибольшее число: " + max);
+//
+//        scan.close();
+//
+//        // {-5, -20, -40, 1}
+//    }
 
-        // текущееМаксимальноеЧисло = минусБесконечность
-        // Цикл текущееЧисло из массива
-        //     Если текущееЧисло больше текущееМаксимальноеЧисло, то
-        //         текущееМаксимальноеЧисло =  текущееЧисло
-        //
-        // Вывести(текущееМаксимальноеЧисло)
 
+    public static void  task3(long[] nums){
+        for (long num : nums){
+            if (num % 3 == 0){
+                System.out.println(num + " - делится на 3 и на 9");
+            }
+        }
     }
 
     // TODO: остальные задачи
@@ -108,11 +129,11 @@ public class VariantB {
     public static void main(String[] args) {
         long[] numbers = getNumbersFromInput();
 
-//        task1(numbers);
-//        task2(numbers);
-//        task3(numbers);
+        //task1(numbers);
+        //task2(numbers);
+  task3(numbers);
 //        task4(numbers);
-        task6(numbers);
+        //task6(numbers);
 
         /*
         List of prime numbers: http://compoasso.free.fr/primelistweb/page/prime/liste_online_en.php
