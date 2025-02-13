@@ -31,17 +31,35 @@ public class ConditionalOperators {
         }
     }
 
-    // TODO: ДЗ
-    static int minTwo() {
-        return -1;
+
+    static int minTwo(int a, int b) {
+        if (a < b){
+            return a;
+        } else{
+            return b;
+        }
     }
 
-    static int minThree() {
-        return -1;
+    static int minThree(int a, int b, int c) {
+        if (a < b && a < c){
+            return a;
+        } else if (b > a && b < c){
+            return b;
+        } else {
+            return c;
+        }
     }
 
-    static int maxFour() {
-        return -1;
+    static int maxFour(int a, int b, int c, int d) {
+        if (a > b && a > c && a > d){
+            return a;
+        } else if (b > a && b > c && b > d){
+            return b;
+        } else if (c > a && c >b && c > d){
+            return c;
+        } else {
+            return d;
+        }
     }
 
 
@@ -52,9 +70,13 @@ public class ConditionalOperators {
         int x = scan.nextInt();
         int y = scan.nextInt();
         int z = scan.nextInt();
+        int d = scan.nextInt();
 
         System.out.println("Answer:");
         System.out.println(maxTwo(x, y));
         System.out.println(maxThree(x, y, z));
+        System.out.println(minTwo(x, y));
+        System.out.println(minThree(x, y, z));
+        System.out.println(maxFour(x, y, z, d));
     }
 }
