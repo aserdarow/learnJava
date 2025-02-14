@@ -33,17 +33,19 @@ public class ConditionalOperators {
 
 
     static int minTwo(int a, int b) {
-        if (a < b){
+        if (a < b) {
             return a;
-        } else{
+        } else {
             return b;
         }
     }
 
+    // TODO: Например если a = 5, b = 3, c = 4,
+    //  программа будет возвращать 4, что неправильно.
     static int minThree(int a, int b, int c) {
-        if (a < b && a < c){
+        if (a < b && a < c) {
             return a;
-        } else if (b > a && b < c){
+        } else if (b > a && b < c) {
             return b;
         } else {
             return c;
@@ -51,17 +53,32 @@ public class ConditionalOperators {
     }
 
     static int maxFour(int a, int b, int c, int d) {
-        if (a > b && a > c && a > d){
+        if (a > b && a > c && a > d) {
             return a;
-        } else if (b > a && b > c && b > d){
+        } else if (b > a && b > c && b > d) {
             return b;
-        } else if (c > a && c >b && c > d){
+        } else if (c > a && c > b && c > d) {
             return c;
         } else {
             return d;
         }
     }
 
+    static int maxFour2(int a, int b, int c, int d) {
+        int max = a;
+
+        if (b > max) {
+            max = b;
+        }
+        if (c > max) {
+            max = c;
+        }
+        if (d > max) {
+            max = d;
+        }
+
+        return max;
+    }
 
     public static void main(String[] args) {
 
