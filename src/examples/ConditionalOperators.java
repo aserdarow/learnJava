@@ -40,12 +40,11 @@ public class ConditionalOperators {
         }
     }
 
-    // TODO: Например если a = 5, b = 3, c = 4,
-    //  программа будет возвращать 4, что неправильно.
+
     static int minThree(int a, int b, int c) {
         if (a < b && a < c) {
             return a;
-        } else if (b > a && b < c) {
+        } else if (b < a && b < c) {
             return b;
         } else {
             return c;
@@ -87,13 +86,13 @@ public class ConditionalOperators {
         int x = scan.nextInt();
         int y = scan.nextInt();
         int z = scan.nextInt();
-        int d = scan.nextInt();
+        //int d = scan.nextInt();
 
         System.out.println("Answer:");
-        System.out.println(maxTwo(x, y));
-        System.out.println(maxThree(x, y, z));
-        System.out.println(minTwo(x, y));
+//        System.out.println(maxTwo(x, y));
+//        System.out.println(maxThree(x, y, z));
+//        System.out.println(minTwo(x, y));
         System.out.println(minThree(x, y, z));
-        System.out.println(maxFour(x, y, z, d));
+//        System.out.println(maxFour(x, y, z, d));
     }
 }
