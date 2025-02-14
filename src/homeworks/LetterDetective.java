@@ -3,8 +3,6 @@ package homeworks;
 import java.util.Scanner;
 
 public class LetterDetective {
-    private final String engVowels = "AEIOUY";
-    private final String ruVowels = "АЕЁИОУЫЭЮЯ";
 
     private static char getUserLetter(String alphabetMsg) {
         System.out.println("Введите букву " + alphabetMsg + ": ");
@@ -13,7 +11,7 @@ public class LetterDetective {
         String text = scan.nextLine();
 
 
-        return text.toUpperCase().charAt(0);
+        return text.charAt(0);
     }
 
 
@@ -31,14 +29,31 @@ public class LetterDetective {
                             "Попробуйте ещё раз...\""
             );
         }
-        scan.close();
+
+        final String engVowels = "AEIOUY";
+        final String ruVowels = "АЕЁИОУЫЭЮЯ";
 
 
+        char letter;
         if (num == 1) {
-            char letter = getUserLetter("латинкого алфавита");
-
-//        boolean letter = new Boolean();
-//        if (letter)
+            letter = getUserLetter("латинского алфавита");
+            if (engVowels.indexOf(letter) != -1) {
+                System.out.println(letter + " - гласная буква!");
+            } else if ((letter >= 'A' && letter <= 'Z')) {
+                System.out.println(letter + " - согласная буква!");
+            } else {
+                System.out.println("Упс! Неизвестная буква. Попробуйте другую!");
+            }
+        } else if (num == 2) {
+            letter = getUserLetter("кириллицы");
+            if (ruVowels.indexOf(letter) != -1) {
+                System.out.println(letter + " - гласная буква!");
+            } else if ((letter >= 'А' && letter <= 'Я')) {
+                System.out.println(letter + " - согласная буква!");
+            } else {
+                System.out.println("Упс! Неизвестная буква. Попробуйте другую!");
+            }
         }
+
     }
 }
