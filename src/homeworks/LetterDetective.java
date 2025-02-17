@@ -3,6 +3,8 @@ package homeworks;
 import java.util.Scanner;
 
 public class LetterDetective {
+    private final String engVowels = "AEIOUY";
+    private final String ruVowels = "АЕЁИОУЫЭЮЯ";
 
     private static char getUserLetter(String alphabetMsg) {
         System.out.println("Введите букву " + alphabetMsg + ": ");
@@ -10,10 +12,30 @@ public class LetterDetective {
         Scanner scan = new Scanner(System.in);
         String text = scan.nextLine();
 
-
         return text.charAt(0);
     }
 
+    private static String checkLetter(String vowels, char letter, char firstChar, char lastChar) {
+        if (vowels.indexOf(letter) != -1) {
+            return letter + " - гласная буква!";
+        } else if ((letter >= firstChar && letter <= lastChar)) {
+            return letter + " - согласная буква!";
+        } else {
+            return "Упс! Неизвестная буква. Попробуйте другую!";
+        }
+
+    }
+
+    void gameLogic(int num) {
+        char letter;
+        if (num == 1) {
+            letter = getUserLetter("латинского алфавита");
+            System.out.println(checkLetter(engVowels, letter, 'A', 'Z'));
+        } else if (num == 2) {
+            letter = getUserLetter("кириллицы");
+            System.out.println(checkLetter(ruVowels, letter, 'А', 'Я'));
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -28,32 +50,12 @@ public class LetterDetective {
                     "\"Упс! Выбран неверный режим.\n" +
                             "Попробуйте ещё раз...\""
             );
+        } else {
+            //        int number = 10;
+//        String name = new String("Max");
+            LetterDetective letObj = new LetterDetective();
+
+            letObj.gameLogic(num);
         }
-
-        final String engVowels = "AEIOUY";
-        final String ruVowels = "АЕЁИОУЫЭЮЯ";
-
-
-        char letter;
-        if (num == 1) {
-            letter = getUserLetter("латинского алфавита");
-            if (engVowels.indexOf(letter) != -1) {
-                System.out.println(letter + " - гласная буква!");
-            } else if ((letter >= 'A' && letter <= 'Z')) {
-                System.out.println(letter + " - согласная буква!");
-            } else {
-                System.out.println("Упс! Неизвестная буква. Попробуйте другую!");
-            }
-        } else if (num == 2) {
-            letter = getUserLetter("кириллицы");
-            if (ruVowels.indexOf(letter) != -1) {
-                System.out.println(letter + " - гласная буква!");
-            } else if ((letter >= 'А' && letter <= 'Я')) {
-                System.out.println(letter + " - согласная буква!");
-            } else {
-                System.out.println("Упс! Неизвестная буква. Попробуйте другую!");
-            }
-        }
-
     }
 }
