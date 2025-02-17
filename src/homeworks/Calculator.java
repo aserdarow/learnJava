@@ -24,23 +24,26 @@ public class Calculator {
         return a / b;
     }
 
+    // TODO: Дополнительные функции:
+    //  Добавьте возможность вычисления остатка от деления ( % ).
+    //  Добавьте возможность возведения числа в степень ( ^ ).
 
     public static void main(String[] args) {
         String operators = "+-*/";
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Введите первое число: ");
-        double a = scan.nextDouble();
-        System.out.println("Введите второе число: ");
-        double b = scan.nextDouble();
-
         System.out.println("Выберите операцию (+, -, *, /): ");
         String operation = scan.nextLine();
 
         if (!operators.contains(operation)) {
-            System.out.println("Выбранная операция недоступна...");
+            System.out.println("Выбранная операция недоступно...");
         } else {
+            System.out.println("Введите первое число: ");
+            double a = scan.nextDouble();
+
+            System.out.println("Введите второе число: ");
+            double b = scan.nextDouble();
 
             Calculator calc = new Calculator();
 
