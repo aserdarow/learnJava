@@ -2,7 +2,7 @@ package homeworks;
 
 import java.util.Scanner;
 
-public class calculator {
+public class Calculator {
 
     double sum(double a, double b) {
         return a + b;
@@ -42,7 +42,7 @@ public class calculator {
             System.out.println("Выбранная операция недоступна...");
         } else {
 
-            calculator calc = new calculator();
+            Calculator calc = new Calculator();
 
             if (operation.equals("+")) {
                 System.out.println(calc.sum(a, b));
