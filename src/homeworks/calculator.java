@@ -3,7 +3,30 @@ package homeworks;
 import java.util.Scanner;
 
 public class calculator {
-    public static void main(String[] args){
+
+    double sum(double a, double b) {
+        return a + b;
+    }
+
+    double sub(double a, double b) {
+        return a - b;
+    }
+
+    double multi(double a, double b) {
+        return a * b;
+    }
+
+    double div(double a, double b) {
+        if (b == 0) {
+            throw new ArithmeticException("Ошибка: деление на ноль!");
+        }
+
+        return a / b;
+    }
+
+
+    public static void main(String[] args) {
+        String operators = "+-*/";
 
         Scanner scan = new Scanner(System.in);
 
@@ -12,20 +35,24 @@ public class calculator {
         System.out.println("Введите второе число: ");
         double b = scan.nextDouble();
 
-        double res1 = a + b;
-        System.out.println("Ответ Сложения: " + res1);
+        System.out.println("Выберите операцию (+, -, *, /): ");
+        String operation = scan.nextLine();
 
-        double res2 = a - b;
-        System.out.println("Ответ Вычитание: " + res2);
+        if (!operators.contains(operation)) {
+            System.out.println("Выбранная операция недоступна...");
+        } else {
 
-        double res3 = a * b;
-        System.out.println("Ответ Умножение: " + res3);
+            calculator calc = new calculator();
 
-        double res4 = a / b;
-        if (b == 0){
-            System.out.println("Ошибка: деление на ноль");
-        }else {
-            System.out.println("Ответ Деления: " + res4);
+            if (operation.equals("+")) {
+                System.out.println(calc.sum(a, b));
+            } else if (operation.equals("-")) {
+                System.out.println(calc.sub(a, b));
+            } else if (operation.equals("*")) {
+                System.out.println(calc.multi(a, b));
+            } else if (operation.equals("/")) {
+                System.out.println(calc.div(a, b));
+            }
         }
 
         scan.close();
