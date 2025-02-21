@@ -23,17 +23,19 @@ public class Calculator {
 
         return a / b;
     }
+    double rem(double a, double b){
+        return a % b;
+    }
 
-    // TODO: Дополнительные функции:
-    //  Добавьте возможность вычисления остатка от деления ( % ).
+
     //  Добавьте возможность возведения числа в степень ( ^ ).
 
     public static void main(String[] args) {
-        String operators = "+-*/";
+        String operators = "+-*/%^";
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Выберите операцию (+, -, *, /): ");
+        System.out.println("Выберите операцию (+, -, *, /, %, ^): ");
         String operation = scan.nextLine();
 
         if (!operators.contains(operation)) {
@@ -55,6 +57,8 @@ public class Calculator {
                 System.out.println(calc.multi(a, b));
             } else if (operation.equals("/")) {
                 System.out.println(calc.div(a, b));
+            } else if (operation.equals("%")){
+                System.out.println(calc.rem(a, b));
             }
         }
 
