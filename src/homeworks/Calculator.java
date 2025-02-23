@@ -26,6 +26,9 @@ public class Calculator {
     double rem(double a, double b){
         return a % b;
     }
+//    double pow(double a, double b){
+//        return Math.pow(double a,double b);
+//    }
 
 
     //  Добавьте возможность возведения числа в степень ( ^ ).
@@ -49,17 +52,25 @@ public class Calculator {
 
             Calculator calc = new Calculator();
 
-            if (operation.equals("+")) {
-                System.out.println(calc.sum(a, b));
-            } else if (operation.equals("-")) {
-                System.out.println(calc.sub(a, b));
-            } else if (operation.equals("*")) {
-                System.out.println(calc.multi(a, b));
-            } else if (operation.equals("/")) {
-                System.out.println(calc.div(a, b));
-            } else if (operation.equals("%")){
-                System.out.println(calc.rem(a, b));
+            switch (operation){
+                case "+": System.out.println(calc.sum(a,b));
+                case "-": System.out.println(calc.sub(a,b));
+                case "*": System.out.println(calc.multi(a,b));
+                case "/": System.out.println(calc.div(a,b));
+                case "%": System.out.println(calc.rem(a,b));
             }
+
+//            if (operation.equals("+")) {
+//                System.out.println(calc.sum(a, b));
+//            } else if (operation.equals("-")) {
+//                System.out.println(calc.sub(a, b));
+//            } else if (operation.equals("*")) {
+//                System.out.println(calc.multi(a, b));
+//            } else if (operation.equals("/")) {
+//                System.out.println(calc.div(a, b));
+//            } else if (operation.equals("%")){
+//                System.out.println(calc.rem(a, b));
+//            }
         }
 
         scan.close();
