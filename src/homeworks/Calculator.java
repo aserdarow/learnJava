@@ -23,15 +23,18 @@ public class Calculator {
 
         return a / b;
     }
-    double rem(double a, double b){
+
+    double rem(double a, double b) {
+        if (b == 0) {
+            throw new ArithmeticException("Ошибка: деление на ноль!");
+        }
+
         return a % b;
     }
-//    double pow(double a, double b){
-//        return Math.pow(double a,double b);
-//    }
 
-
-    //  Добавьте возможность возведения числа в степень ( ^ ).
+    double pow(double base, double exp) {
+        return Math.pow(base, exp);
+    }
 
     public static void main(String[] args) {
         String operators = "+-*/%^";
@@ -52,25 +55,34 @@ public class Calculator {
 
             Calculator calc = new Calculator();
 
-            switch (operation){
-                case "+": System.out.println(calc.sum(a,b));
-                case "-": System.out.println(calc.sub(a,b));
-                case "*": System.out.println(calc.multi(a,b));
-                case "/": System.out.println(calc.div(a,b));
-                case "%": System.out.println(calc.rem(a,b));
+            switch (operation) {
+                case "+":
+                    System.out.println(calc.sum(a, b));
+                case "-":
+                    System.out.println(calc.sub(a, b));
+                case "*":
+                    System.out.println(calc.multi(a, b));
+                case "/":
+                    System.out.println(calc.div(a, b));
+                case "%":
+                    System.out.println(calc.rem(a, b));
+                case "^":
+                    System.out.println(calc.pow(a, b));
             }
 
-//            if (operation.equals("+")) {
-//                System.out.println(calc.sum(a, b));
-//            } else if (operation.equals("-")) {
-//                System.out.println(calc.sub(a, b));
-//            } else if (operation.equals("*")) {
-//                System.out.println(calc.multi(a, b));
-//            } else if (operation.equals("/")) {
-//                System.out.println(calc.div(a, b));
-//            } else if (operation.equals("%")){
-//                System.out.println(calc.rem(a, b));
-//            }
+            if (operation.equals("+")) {
+                System.out.println(calc.sum(a, b));
+            } else if (operation.equals("-")) {
+                System.out.println(calc.sub(a, b));
+            } else if (operation.equals("*")) {
+                System.out.println(calc.multi(a, b));
+            } else if (operation.equals("/")) {
+                System.out.println(calc.div(a, b));
+            } else if (operation.equals("%")) {
+                System.out.println(calc.rem(a, b));
+            } else if (operation.equals("^")) {
+                System.out.println(calc.pow(a, b));
+            }
         }
 
         scan.close();
