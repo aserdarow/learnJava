@@ -101,13 +101,65 @@ public class File1703 {
         System.out.println(null instanceof String);  // false
     }
 
+    // Вопрос 17:
+    // Массив - это структура данных, хранящая упорядоченный
+    // набор однотипных элементов.
+
+    // Вопрос 18:
+    // Примитивные типы хранят свои значения непосредственно в памяти,
+    // а ссылочные типы - хранят адреса объектов, на которые они ссылаются.
+    static void question18() {
+        int[] nums = new int[20];
+        String[] names = new String[15];
+
+        int[] numsTwo = {5, 65, 7, 23, 43};
+        String[] namesTwo = {"Alice", "Bob", "John"};
+
+        String[][] alphabet2D = {
+                {"A", "B", "C"},
+                {"D", "E", "F"},
+                {"G", "H", "I"},
+                {"J", "K", "L"},
+        };
+        alphabet2D[2][2].toUpperCase();
+
+        int[][] arr2DTwo = new int[10][6];
+        int[][] arr2D = {
+                {10, 20, 30},
+                {40, 50, 60},
+                {70, 80, 90},
+        };
+
+        arr2D[2][0] = 150000;
+
+        System.out.println(arr2D[1][1]);  // 50
+        System.out.println(arr2D[2][0]);  // 70
+    }
+    // Вопрос 19: Ответ на вопросы и примеры были выше в 18 вопросе.
+
+
+    // Вопрос 20:
+    // String[] namesTwo = {"Alice", "Bob", "John"};
+    // namesTwo[1] --> "Bob";
+    // namesTwo[6] --> java.lang.ArrayIndexOutOfBoundsException;
+    static void question20() {
+        String[] namesTwo = {"Alice", "Bob", "John"};
+        System.out.println(namesTwo[1]); // "Bob"
+        //  System.out.println(namesTwo[6]);  // --> java.lang.ArrayIndexOutOfBoundsException;
+
+        // java.lang.ArrayStoreException.
+        //  Object x[] = new String[3];
+        //  x[0] = new Integer(0);
+
+    }
 
     public static void main(String[] args) {
-        System.out.println((11 / 5.0));
-        System.out.println((5.5 * (3 + 2)));
-        System.out.println(10 / 10.0);
-        exampleInstanceOf();
+//        System.out.println((11 / 5.0));
+//        System.out.println((5.5 * (3 + 2)));
+//        System.out.println(10 / 10.0);
+//        exampleInstanceOf();
 
+        question20();
     }
 
 }
