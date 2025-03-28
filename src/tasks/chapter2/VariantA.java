@@ -1,8 +1,6 @@
 package tasks.chapter2;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class VariantA {
     public static String[] getInformation() {
@@ -23,7 +21,6 @@ public class VariantA {
     }
 
     public static void task1(String[] nums) {
-
         String shortestNum = nums[0];
         String longestNum = nums[0];
 
@@ -45,27 +42,33 @@ public class VariantA {
     }
 
     public static void task2(String[] nums) {
-        //Arrays.sort(nums, Comparator.comparingInt(String));
+        Arrays.sort(nums, Comparator.comparingInt(String::length));
+
         System.out.println("Число в порядке возрастание длины: ");
         for (int i = 0; i < nums.length; i++) {
             String num = nums[i];
             System.out.println(num + " (длина: " + num.length() + ")");
         }
 
+        Arrays.sort(nums, Comparator.comparingInt(String::length).reversed());
 
-        //Arrays.sort(nums,Comparator.comparingInt());
+        System.out.println("Число в порядке убывания длины: ");
+        for (int i = 0; i < nums.length; i++) {
+            String num = nums[i];
+            System.out.println(num + " (длина: " + num.length() + ")");
+        }
 
     }
 
 
     public static void task3(String[] nums) {
 
-        double sumLength = 0;
+        int sumLength = 0;
         for (int i = 0; i < nums.length; i++) {
             String num = nums[i];
             sumLength += num.length();
         }
-        double avgLength = sumLength / nums.length;
+        int avgLength = sumLength / nums.length;
 
         System.out.println("Числа, длина которых меньше средней (" + avgLength + "):");
         for (int i = 0; i < nums.length; i++) {
@@ -81,21 +84,71 @@ public class VariantA {
             if (num.length() > avgLength) {
                 System.out.println(num + "(длина: " + num.length() + ")");
             }
-
         }
 
     }
-    public static void task4(String[] nums){
-        String minNum = nums[0];
-        int minCount =;
+
+    private static int uniqueDigitsForTask4(String n) {
+        // n ---> '111123';
+
+        // {'2', '1', '3'}
+        Set<Character> digits = new HashSet<>();
+
+        char[] chars = n.toCharArray();  // {'1', '1', '1', '1', '2', '3'};
+        for (int i = 0; i < chars.length; i++) {
+            char currDigit = chars[i];
+            digits.add(currDigit);
+        }
+
+        return digits.size();  // 3
+    }
+
+    public static void task4(String[] nums) {
+        int minUniqueNum = uniqueDigitsForTask4(nums[0]);
+        String result = nums[0];
+
+        for (int i = 0; i < nums.length; i++) {
+            int currUnique = uniqueDigitsForTask4(nums[i]);  // N-unique
+
+            if (currUnique < minUniqueNum) {
+                minUniqueNum = currUnique;
+                result = nums[i];
+            }
+        }
+
+        System.out.println(result);
+
+    }
+
+    public static void task5(String[] nums) {
+
+        // 12434576
+        // 24680246
+        // 2468
+        // 142538
+        // 446448
+        // 96124
+
+        // 113779
+
+        // 24680246
+        // 2468
+        // 446448
+
+    }
+
+    public static void task8(String[] nums) {
+        // Палиндром
+        // 12321
+        // 1221
     }
 
     public static void main(String[] args) {
         String[] numbers = getInformation();
-        //task1(numbers);
-        //task2(numbers);
-        task3(numbers);
-        //task4(numbers);
+//        task1(numbers);
+//        task2(numbers);
+//        task3(numbers);
+        task4(numbers);
         //task5(numbers);
 
     }
