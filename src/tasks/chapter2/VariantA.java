@@ -120,27 +120,115 @@ public class VariantA {
 
     }
 
-    public static void task5(String[] nums) {
+    private static boolean hasOnlyEvenDigits(String number) {
+        // "53455" -> false
+        // "24680" -> true;
+        //  int result = '5' - '0';
+        //  int result = 53 - 48;  // ASCII-таблица
+        for (char digit : number.toCharArray()) {
+            if (Character.isDigit(digit) && (digit - '0') % 2 != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-        // 12434576
-        // 24680246
-        // 2468
-        // 142538
-        // 446448
-        // 96124
+    private static boolean hasBalanceEvenOddDigits(String number) {
+        int evenCount = 0, oddCount = 0;
 
-        // 113779
+        for (char digit : number.toCharArray()) {
+            if (Character.isDigit(digit)) {
 
-        // 24680246
-        // 2468
-        // 446448
+                if ((digit - '0') % 2 == 0) evenCount++;
+                else oddCount++;
+
+            }
+        }
+
+        return evenCount == oddCount;
 
     }
 
+    /**
+     * Найти количество чисел, содержащих только четные цифры, а среди них —
+     * количество чисел с равным числом четных и нечетных цифр.
+     * @param nums
+     */
+    public static void task5(String[] nums) {
+        int onlyEvenDigitCount = 0, balancedCount = 0;
+
+        for (String n : nums) {
+            if (hasOnlyEvenDigits(n)) {
+                onlyEvenDigitCount++;
+            } else {
+
+                if (hasBalanceEvenOddDigits(n)) {
+                    balancedCount++;
+                }
+            }
+
+        }
+
+        System.out.printf("Только с четными %d%n", onlyEvenDigitCount);
+        System.out.printf("Сбалансированные с четными и нечетными цифрами %d%n", balancedCount);
+
+    }
+
+
+    private static boolean hasStrictAscDigits(String number) {
+        // number = "12479"
+        // "7" < "9"
+
+        for (int i = 0; i < number.length() - 1; i++) {
+            if (number.charAt(i) >= number.charAt(i + 1)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Найти число, цифры в котором идут в строгом порядке возрастания. Если
+     * таких чисел несколько, найти первое из них.
+     * @param nums
+     */
+    public static void task6(String[] nums) {
+        // 12479 - ответ.
+        // 3678
+        // 12345
+
+        // TODO: дописать код.
+    }
+
+    private static boolean hasAllUniqueDigits(String number) {
+        // Вариант 1: Использовать Set: O(N)
+        Set<Character> digits = new HashSet<>();
+        digits.add('5');
+        digits.add('5');
+        digits.add('3');
+
+//        for (int i = 0; i < ; i++) {
+//
+//        }
+
+        // Вариант 2: Использовать вложенный цикл: O(N * logN)
+//        for (int i = 0; i < ; i++) {
+//            for (int j = 0; j < ; j++) {
+//
+//            }
+//        }
+
+        return true;
+    }
+
+    public static void task7(String[] nums) {
+        // TODO: Решение задачи
+    }
+
+
     public static void task8(String[] nums) {
-        // Палиндром
-        // 12321
-        // 1221
+        // TODO: Решение задачи
     }
 
     public static void main(String[] args) {
@@ -148,8 +236,10 @@ public class VariantA {
 //        task1(numbers);
 //        task2(numbers);
 //        task3(numbers);
-        task4(numbers);
-        //task5(numbers);
+//        task4(numbers);
+        task5(numbers);
+        task7(numbers);
+        task8(numbers);
 
     }
 }
