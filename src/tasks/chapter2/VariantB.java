@@ -53,9 +53,55 @@ public class VariantB {
         sc.close();
     }
 
+    static void task4() {
+            for (int i = 1; i <= 100; i++) {
+                if (i % 3 == 0) {
+                    System.out.println(i);
+                }
+            }
+    }
+
+    static void task5() {
+
+        int n = 129;
+        String binN = Integer.toBinaryString(n);
+
+        int count = 0;
+
+        for (int i = 0; i < binN.length(); i++) {
+            if (binN.charAt(i) == '0') {
+                count++;
+            }
+
+        }
+        System.out.println(count);
+    }
+
+    static void task9() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Введите число от 1 до 12:");
+        int monthNumber = sc.nextInt();
+
+        if (monthNumber < 1 || monthNumber > 12) {
+            System.out.println("Ошибка: число должно быть от 1 до 12.");
+        } else {
+            String[] months = {
+                    "Январь", "Февраль", "Март", "Апрель",
+                    "Май", "Июнь", "Июль", "Август",
+                    "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+            };
+            System.out.println("Месяц: " + months[monthNumber - 1]);
+        }
+    }
+
+
     public static void main(String[] args) {
         //  task1();
         // task2();
-        task3();
+        // task3();
+        //task4();
+        //task5();
+        task9();
     }
 }
