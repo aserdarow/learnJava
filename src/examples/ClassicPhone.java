@@ -1,9 +1,10 @@
 package examples;
 
-public class ClassicPhone extends Device {
+public class ClassicPhone implements IDevice {
     private int num = 10;
 
-    public void keyboards() {}
+    public void keyboards() {
+    }
 
     public static void main(String[] args) {
         ClassicPhone phone = new ClassicPhone();
@@ -17,6 +18,15 @@ public class ClassicPhone extends Device {
         phone2.keyboards();
     }
 
+    @Override
+    public void on() {
+
+    }
+
+    @Override
+    public void off() {
+
+    }
 }
 
 // экземпляр = объект
