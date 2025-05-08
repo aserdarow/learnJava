@@ -152,6 +152,7 @@ public class VariantA {
     /**
      * Найти количество чисел, содержащих только четные цифры, а среди них —
      * количество чисел с равным числом четных и нечетных цифр.
+     *
      * @param nums
      */
     public static void task5(String[] nums) {
@@ -178,6 +179,7 @@ public class VariantA {
     private static boolean hasStrictAscDigits(String number) {
         // number = "12479"
         // "7" < "9"
+        // 362
 
         for (int i = 0; i < number.length() - 1; i++) {
             if (number.charAt(i) >= number.charAt(i + 1)) {
@@ -191,14 +193,15 @@ public class VariantA {
     /**
      * Найти число, цифры в котором идут в строгом порядке возрастания. Если
      * таких чисел несколько, найти первое из них.
+     *
      * @param nums
      */
     public static void task6(String[] nums) {
-        // 12479 - ответ.
-        // 3678
-        // 12345
-
-        // TODO: дописать код.
+        for (String n : nums) {
+            if (hasStrictAscDigits(n)) {
+                System.out.println(n);
+            }
+        }
     }
 
     private static boolean hasAllUniqueDigits(String number) {
@@ -226,9 +229,37 @@ public class VariantA {
         // TODO: Решение задачи
     }
 
+    private static boolean isPalindrome(String number) {
+        //12261
+        //метод двух указателей
+        int left = 0;
+        int right = number.length() - 1;
+        while (left < right){
+            if (number.charAt(left) != number.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
 
-    public static void task8(String[] nums) {
-        // TODO: Решение задачи
+        return true;
+    }
+
+
+    public static String task8(String[] nums) {
+        int count = 0;
+        for (String n : nums) {
+            if (isPalindrome(n)) {
+                count++;
+                if (count == 2){
+                    System.out.println(n);
+                    return n;
+                }
+
+            }
+
+        }
+        return " ";
     }
 
     public static void main(String[] args) {
@@ -237,8 +268,9 @@ public class VariantA {
 //        task2(numbers);
 //        task3(numbers);
 //        task4(numbers);
-        task5(numbers);
-        task7(numbers);
+        //task5(numbers);
+        //task6(numbers);
+        //task7(numbers);
         task8(numbers);
 
     }

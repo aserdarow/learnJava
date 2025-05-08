@@ -162,7 +162,8 @@ public class VariantB {
 
     public static void task7Desc(long[] nums) {
         for (int i = 0; i < nums.length - 1; i++) {
-            // TODO:По убыванию
+
+
         }
     }
 
@@ -183,12 +184,28 @@ public class VariantB {
 //        task2(numbers);
 //        task3(numbers);
 //        task4(numbers);
-        task5(numbers);
+ //       task5(numbers);
 //        task6(numbers);
-//        task7(numbers);
+        task7Desc(numbers);
 
         /*
         List of prime numbers: http://compoasso.free.fr/primelistweb/page/prime/liste_online_en.php
          */
+        // 1. Это трехзначное число?
+        // Да - то можно проверить его цифры.
+        // Нет - то переходить к следующему числу в массиве.
+
+        // 2. Как получить эти цифры числа?
+        // предыдущая цифра = 3
+        // текущая цифра =
+
+        // c 783 % 10 = 3
+//        783 / 10 = (long) 78.3
+        // b 78 % 10 = 8
+//        78.3 / 10 (long) 7.8 = 7
+        // a 7 % 10 = 7
+//        7 / 10 (long) 0.7 = 0
+
+        // с != a and b != a and c != b
     }
 }
